@@ -51,6 +51,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}} {{#vendorExtens
   {{/generateBuilders}}
 
   {{#vars}}
+  {{! begin feature: fluent setter methods }}
   /**
    {{#description}}
    * {{.}}
@@ -66,6 +67,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}} {{#vendorExtens
     this.{{name}} = {{name}};
     return this;
   }
+  {{! end feature: fluent setter methods }}
 
   {{#vendorExtensions.x-extra-annotation}}{{{vendorExtensions.x-extra-annotation}}}{{/vendorExtensions.x-extra-annotation}}{{#useSwaggerAnnotations}}
   @ApiModelProperty({{#example}}example = "{{{.}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}value = "{{{description}}}"){{/useSwaggerAnnotations}}

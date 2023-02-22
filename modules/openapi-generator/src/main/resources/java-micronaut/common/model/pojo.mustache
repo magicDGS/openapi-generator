@@ -109,6 +109,7 @@ Declare the class with extends and implements
     {{/requiredPropertiesInConstructor}}
     {{#vars}}
         {{^isReadOnly}}
+        {{! begin feature: fluent setter methods }}
     public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
             {{#vendorExtensions.x-is-jackson-optional-nullable}}
         this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
@@ -169,6 +170,7 @@ Declare the class with extends and implements
   }
 
             {{/isMap}}
+        {{! end feature: fluent setter methods }}
         {{/isReadOnly}}
     /**
         {{#description}}

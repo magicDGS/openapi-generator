@@ -137,6 +137,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
   }
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
+  {{! begin feature: fluent setter methods }}
   public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
   {{#vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
@@ -178,6 +179,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
   {{/isMap}}
+  {{! end feature: fluent setter methods }}
   {{/isReadOnly}}
 
   {{/vars}}

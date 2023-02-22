@@ -40,6 +40,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}} {{#vendorExtens
 
   {{/vars}}
   {{#vars}}
+  {{! begin feature: fluent setter methods }}
   public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
     this.{{name}} = {{name}};
     return this;
@@ -68,6 +69,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}} {{#vendorExtens
     return this;
   }
   {{/isMap}}
+  {{! end feature: fluent setter methods }}
 
   /**
   {{#description}}

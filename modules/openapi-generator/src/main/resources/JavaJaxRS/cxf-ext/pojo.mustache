@@ -94,6 +94,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
     this.{{name}} = {{name}};
   }
 
+  {{! begin feature: fluent setter methods }}
   /**
    * Sets the <code>{{name}}</code> property.
 {{#isReadOnly}}
@@ -130,6 +131,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
     return this;
   }
   {{/isMap}}
+  {{! end feature: fluent setter methods }}
 
   {{/vars}}
 
