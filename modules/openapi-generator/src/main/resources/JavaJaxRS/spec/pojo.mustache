@@ -52,7 +52,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}} {{#vendorExtens
 
   {{#vars}}
   {{! begin feature: fluent setter methods }}
-  /**
+  {{^disableFluentSetters}}/**
    {{#description}}
    * {{.}}
    {{/description}}
@@ -66,7 +66,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}} {{#vendorExtens
   public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
     this.{{name}} = {{name}};
     return this;
-  }
+  }{{/disableFluentSetters}}
   {{! end feature: fluent setter methods }}
 
   {{#vendorExtensions.x-extra-annotation}}{{{vendorExtensions.x-extra-annotation}}}{{/vendorExtensions.x-extra-annotation}}{{#useSwaggerAnnotations}}

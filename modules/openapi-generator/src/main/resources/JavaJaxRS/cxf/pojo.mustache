@@ -138,7 +138,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
   {{! begin feature: fluent setter methods }}
-  public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
+  {{^disableFluentSetters}}public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
   {{#vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
@@ -146,7 +146,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
     this.{{name}} = {{name}};
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
-  }
+  }{{/disableFluentSetters}}
   {{#isArray}}
 
   public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {

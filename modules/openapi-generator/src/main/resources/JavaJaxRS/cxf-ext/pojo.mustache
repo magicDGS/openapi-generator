@@ -95,7 +95,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
   }
 
   {{! begin feature: fluent setter methods }}
-  /**
+  {{^disableFluentSetters}}/**
    * Sets the <code>{{name}}</code> property.
 {{#isReadOnly}}
    * <br><em>N.B. <code>{{name}}</code> is <b>read only</b>; client code should not call this method</em>.
@@ -104,7 +104,7 @@ public class {{classname}} {{#parent}}extends {{{.}}}{{/parent}}{{#vendorExtensi
   public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
     this.{{name}} = {{name}};
     return this;
-  }
+  }{{/disableFluentSetters}}
   {{#isArray}}
 
   /**
