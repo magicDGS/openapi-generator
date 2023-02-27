@@ -112,7 +112,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
 
   {{/vendorExtensions.x-enum-as-string}}
   {{! begin feature: fluent setter methods }}
-  public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
+  {{^disableFluentSetters}}public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
     {{#vendorExtensions.x-enum-as-string}}
     if (!{{{nameInSnakeCase}}}_VALUES.contains({{name}})) {
       throw new IllegalArgumentException({{name}} + " is invalid. Possible values for {{name}}: " + String.join(", ", {{{nameInSnakeCase}}}_VALUES));
@@ -126,7 +126,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
-  }
+  }{{/disableFluentSetters}}
   {{#isArray}}
 
   public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
