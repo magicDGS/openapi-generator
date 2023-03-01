@@ -54,6 +54,7 @@ import org.openapitools.codegen.languages.features.DocumentationProviderFeatures
 import org.openapitools.codegen.languages.features.OptionalFeatures;
 import org.openapitools.codegen.languages.features.PerformBeanValidationFeatures;
 import org.openapitools.codegen.languages.features.SwaggerUIFeatures;
+import org.openapitools.codegen.languages.features.DocumentationProviderFeatures.AnnotationLibrary;
 import org.openapitools.codegen.meta.features.DocumentationFeature;
 import org.openapitools.codegen.meta.features.GlobalFeature;
 import org.openapitools.codegen.meta.features.ParameterFeature;
@@ -1031,10 +1032,10 @@ public class SpringCodegen extends AbstractJavaCodegen
     @Override
     public CodegenModel fromModel(String name, Schema model) {
         CodegenModel codegenModel = super.fromModel(name, model);
-        if (getAnnotationLibrary() != AnnotationLibrary.SWAGGER1) {
-            // remove swagger imports
-            codegenModel.imports.remove("ApiModelProperty");
-            codegenModel.imports.remove("ApiModel");
+        if (AnnotationLibrary.SWAGGER1.equals(getAnnotationLibrary())) {
+            // Add io.swagger.annotations.* imports
+        	importMapping.put("ApiModelProperty", "io.swagger.annotations.ApiModelProperty");
+            importMapping.put("ApiModel", "io.swagger.annotations.ApiModel");
         }
 
         return codegenModel;
