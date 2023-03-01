@@ -1034,8 +1034,8 @@ public class SpringCodegen extends AbstractJavaCodegen
         CodegenModel codegenModel = super.fromModel(name, model);
         if (AnnotationLibrary.SWAGGER1.equals(getAnnotationLibrary())) {
             // Add io.swagger.annotations.* imports
-        	importMapping.put("ApiModelProperty", "io.swagger.annotations.ApiModelProperty");
-            importMapping.put("ApiModel", "io.swagger.annotations.ApiModel");
+        	codegenModel.imports.remove("ApiModelProperty");
+            codegenModel.imports.remove("ApiModel");
         }
 
         return codegenModel;

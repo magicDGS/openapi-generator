@@ -985,8 +985,8 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         // TODO: inverse logic. Do not add the imports unconditionally in the first place.
         if (AnnotationLibrary.SWAGGER1.equals(getAnnotationLibrary())) {
             // Add io.swagger.annotations.* imports
-        	importMapping.put("ApiModelProperty", "io.swagger.annotations.ApiModelProperty");
-            importMapping.put("ApiModel", "io.swagger.annotations.ApiModel");
+        	codegenModel.imports.add("ApiModelProperty");
+        	codegenModel.imports.add("ApiModel");
         }
 
         return codegenModel;
